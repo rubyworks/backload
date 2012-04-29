@@ -1,3 +1,5 @@
 ---
-- detroit (build)
+- minitest (test)
+- detroit  (build)
+- rake     (build)
 

@@ -9,7 +9,15 @@ copyrights:
   year: '2012'
   license: BSD-2-Clause
 requirements:
+- name: minitest
+  groups:
+  - test
+  development: true
 - name: detroit
+  groups:
+  - build
+  development: true
+- name: rake
   groups:
   - build
   development: true
