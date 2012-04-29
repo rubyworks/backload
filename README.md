@@ -4,6 +4,8 @@
 [Development](http://github.com/rubyworks/loaded) /
 [Report Issue](http://github.com/rubyworks/loaded/issues)
 
+[![Build Status](https://secure.travis-ci.org/rubyworks/loaded.png)](http://travis-ci.org/rubyworks/loaded)
+
 
 ## Description
 
