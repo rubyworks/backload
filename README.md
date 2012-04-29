@@ -32,7 +32,7 @@ Shouldn't loading have a callback?
 
 Please report issues or suggestions to
 [GitHub Issues](http://github.com/rubyworks/required/issues).
-Or if you wish to discuss in real-time try irc://chat.us.freenet.org/rubyworks.
+Or if you wish to discuss in real-time try [IRC #rubyworks](irc://chat.us.freenet.org/rubyworks) on freenode.net.
 
 
 ## Copying
