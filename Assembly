@@ -1,0 +1,31 @@
+---
+email:
+  file: ~
+  subject: ~
+  mailto: 
+    - ruby-talk@ruby-lang.org
+    - rubyworks-mailinglist@googlegroups.com
+  #parts: [readme]
+
+gem:
+  gemspec: pkg/loaded.gemspec
+
+github:
+  gh_pages: site
+
+dnote:
+  title: Source Notes
+  output: log/notes.html
+  labels: ~
+
+yard:
+  active: false
+  yardopts: true  
+  priority: 2
+
+vclog:
+  active: false
+  output: 
+    - log/history.html
+    - log/changes.html
+

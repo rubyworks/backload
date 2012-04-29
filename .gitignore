@@ -1,0 +1,10 @@
+.fire/digest
+.yardoc
+doc
+log
+pkg/*.gem
+pkg/*.gz
+tmp
+SPEC*.md
+web
+work/sandbox
