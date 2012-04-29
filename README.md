@@ -12,7 +12,7 @@ Shouldn't loading have a callback?
 
 ## Installation
 
-   $ gem install loaded
+    $ gem install loaded
 
 
 ## Instruction
@@ -22,7 +22,7 @@ Shouldn't loading have a callback?
     end
 
     def Kernel.required(feature)
-      puts "#{feature} has been requried!"
+      puts "#{feature} has been required!"
     end
 
 
