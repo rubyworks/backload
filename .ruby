@@ -30,14 +30,15 @@ repositories:
   name: upstream
 resources:
 - uri: http://rubyworks.github.com/loaded
-  name: home
+  label: Website
   type: home
 - uri: http://github.com/rubyworks/loaded
-  name: code
+  label: Source Code
   type: code
 - uri: http://github.com/rubyworks/loaded/issues
-  name: bugs
+  label: Issue Tracker
   type: bugs
+categories: []
 extra: {}
 load_path:
 - lib
@@ -49,4 +50,4 @@ version: 0.0.1
 name: loaded
 description: ! 'Loaded provides callbacks for Ruby''s #require and #load methods.'
 organization: rubyworks
-date: '2012-04-29'
+date: '2012-05-19'
