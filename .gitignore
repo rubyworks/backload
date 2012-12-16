@@ -2,10 +2,9 @@
 .yardoc
 doc
 log
-pkg/*.gem
-pkg/*.gz
 tmp
-SPEC*.md
+site
 web
 work/sandbox
-site
+DEMO*.md
+Gemfile.lock
