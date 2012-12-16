@@ -1,0 +1,52 @@
+---
+type: ruby
+revision: 2013
+sources:
+- var
+authors:
+- name: Thomas Sawyer
+  email: transfire@gmail.com
+organizations: []
+requirements:
+- groups:
+  - test
+  development: true
+  name: minitest
+- groups:
+  - build
+  development: true
+  name: detroit
+- groups:
+  - build
+  development: true
+  name: rake
+conflicts: []
+alternatives: []
+resources:
+- type: home
+  uri: http://rubyworks.github.com/loaded
+  label: Homepage
+- type: code
+  uri: http://github.com/rubyworks/loaded
+  label: Source Code
+- type: bugs
+  uri: http://github.com/rubyworks/loaded/issues
+  label: Issue Tracker
+repositories:
+- name: upstream
+  scm: git
+  uri: git://github.com/rubyworks/loaded.git
+categories: []
+load_path:
+- lib
+copyrights:
+- holder: Rubyworks
+  year: '2012'
+  license: BSD-2-Clause
+created: '2012-04-29'
+summary: ! 'Callbacks for #load and #require'
+title: Loaded
+version: 0.0.1
+name: loaded
+description: ! 'Loaded provides callbacks for Ruby''s #require and #load methods.'
+date: '2012-12-16'
