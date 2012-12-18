@@ -37,8 +37,9 @@ repositories:
   scm: git
   uri: git://github.com/rubyworks/loaded.git
 categories: []
-load_path:
-- lib
+paths:
+  load:
+  - lib
 copyrights:
 - holder: Rubyworks
   year: '2012'
@@ -46,7 +47,7 @@ copyrights:
 created: '2012-04-29'
 summary: ! 'Callbacks for #load and #require'
 title: Loaded
-version: 0.0.1
+version: 0.1.0
 name: loaded
 description: ! 'Loaded provides callbacks for Ruby''s #require and #load methods.'
-date: '2012-12-16'
+date: '2012-12-17'

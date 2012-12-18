@@ -11,20 +11,26 @@
 
 Shouldn't loading have a callback?
 
+Note the change in API from v. 0.0 to 0.1. Now ther is only one callback method, namely `#loaded`,
+that both `#load` and `#require` call. Which was used can be determined by the `options[:load]` argument.
+
 
 ## Installation
 
-    $ gem install loaded
+Using RubyGems type on a command line:
+
+    gem install loaded
 
 
 ## Instruction
 
-    def Kernel.loaded(feature, mod=nil)
-      puts "#{feature} has been loaded!"
-    end
-
-    def Kernel.required(feature)
-      puts "#{feature} has been required!"
+    def Kernel.loaded(feature, options={})
+      if options[:load]
+        wrap = options[:wrap] ? "with a wrap" : "without a wrap"
+        puts "#{feature} has been loaded #{wrap}!"
+      else
+        puts "#{feature} has been required!"
+      end
     end
 
 
