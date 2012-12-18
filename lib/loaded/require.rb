@@ -10,15 +10,15 @@ module Kernel
   # Redefine Kernel#require with callback.
   #
   def require(feature, options=nil)
-    options = {:require => true}
+    options = {:require => true, :load => false}
     result = require_without_callback(feature)
+
     Kernel.loaded(feature, options) if result
+
     result
   end
 
   class << self
-    private
-
     #
     # Alias original Kernel.require method.
     #
@@ -28,9 +28,11 @@ module Kernel
     # Redefine Kernel.require with callback.
     #
     def require(feature, options=nil)
-      options = {:require => true}
+      options = {:require => true, :load => false}
       result  = require_without_callback(feature)
+
       Kernel.loaded(feature, options) if result
+
       result
     end
   end

@@ -14,16 +14,17 @@ module Kernel
       wrap = options
       options = {:wrap => wrap}
     end
+    options[:load]    = true
     options[:require] = false
 
     result = load_without_callback(feature, options[:wrap])
+
     Kernel.loaded(feature, options) if result
+
     result
   end
 
   class << self
-    private
-
     #
     # Alias original Kernel.load method.
     #
@@ -37,13 +38,15 @@ module Kernel
         wrap = options
         options = {:wrap => wrap}
       end
+      options[:load]    = true
       options[:require] = false
 
       result = load_without_callback(feature, options[:wrap])
+
       Kernel.loaded(feature, options) if result
+
       result
     end
-
   end
 
 end

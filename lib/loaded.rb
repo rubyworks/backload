@@ -11,5 +11,7 @@ end
 
 require 'loaded/load'
 require 'loaded/require'
+
+# for not this is an optional feature ?
 #require 'loaded/require_relative'
 
