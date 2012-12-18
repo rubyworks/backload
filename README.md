@@ -6,8 +6,6 @@
 
 # Loaded
 
-## Description
-
 Shouldn't loading have a callback?
 
 Note the change in API from v. 0.0 to 0.1. Now there is only one callback method, namely `#loaded`,
