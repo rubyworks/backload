@@ -1,4 +1,4 @@
-#!mast .yardopts .index .ruby bin demo lib man spec test try [A-Z]*.*
+#!mast -x *.lock .yardopts .index .ruby bin demo lib man spec test try [A-Z]*.*
 .index
 lib/loaded/load.rb
 lib/loaded/require.rb
@@ -11,7 +11,6 @@ test/helper.rb
 test/test_load.rb
 test/test_require.rb
 test/test_require_relative.rb
-Gemfile.lock
 LICENSE.txt
 HISTORY.md
 README.md
