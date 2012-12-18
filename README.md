@@ -19,19 +19,33 @@ that both `#load` and `#require` call. Which was used can be determined by the `
 
 Using RubyGems type on a command line:
 
-    gem install loaded
+    $ gem install loaded
 
 
 ## Instruction
 
+To use the loaded callback simply override `Kernel.loaded` method.
+
+```ruby
     def Kernel.loaded(feature, options={})
-      if options[:load]
-        wrap = options[:wrap] ? "with a wrap" : "without a wrap"
-        puts "#{feature} has been loaded #{wrap}!"
+      if options[:require]
+        if rel = options[:relative]
+          puts "#{feature} has been required relative to #{rel}!"
+        else
+          puts "#{feature} has been required!"
+        end
       else
-        puts "#{feature} has been required!"
+        if wrap = options[:wrap]
+          puts "#{feature} has been loaded with wrap, it's #{wrap}!"  
+        else
+          puts "#{feature} has been loaded!" 
+        end
       end
     end
+```
+
+Unfortunately `#require_relative` doesn't work with the callback at this time due to
+an implemention difficulty.
 
 
 ## Feedback
