@@ -13,6 +13,8 @@ class RequiredTestCase < MicroTest::TestCase
     assert $load_opts[:relative]
     refute $load_opts[:load]
     refute $load_opts[:wrap]
+
+    assert_equal File.dirname(__FILE__), $load_opts[:relative]
   end
 
 end

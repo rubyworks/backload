@@ -26,6 +26,7 @@ module Kernel
       if /\A\((.*)\)/ =~ file # eval, etc.
         raise LoadError, "require_relative is called in #{$1}"
       end
+      options[:relative] = File.dirname(file)
       absolute = File.expand_path(feature, File.dirname(file))
       require_without_callback absolute
     )
@@ -61,6 +62,7 @@ module Kernel
         if /\A\((.*)\)/ =~ file # eval, etc.
           raise LoadError, "require_relative is called in #{$1}"
         end
+        options[:relative] = File.dirname(file)
         absolute = File.expand_path(feature, File.dirname(file))
         require_without_callback absolute
       )

@@ -24,25 +24,29 @@ Using RubyGems type on a command line:
 To use the loaded callback simply override `Kernel.loaded` method.
 
 ```ruby
-    def Kernel.loaded(feature, options={})
-      if options[:require]
-        if rel = options[:relative]
-          puts "#{feature} has been required relative to #{rel}!"
-        else
-          puts "#{feature} has been required!"
-        end
+  require 'loaded'
+  require 'loaded/require_relative'
+
+  def Kernel.loaded(feature, options={})
+    if options[:require]
+      if rel = options[:relative]
+        puts "#{feature} has been required relative to #{rel}!"
       else
-        if wrap = options[:wrap]
-          puts "#{feature} has been loaded with wrap, it's #{wrap}!"  
-        else
-          puts "#{feature} has been loaded!" 
-        end
+        puts "#{feature} has been required!"
+      end
+    else
+      if wrap = options[:wrap]
+        puts "#{feature} has been loaded with wrap, it's #{wrap}!"  
+      else
+        puts "#{feature} has been loaded!" 
       end
     end
+  end
 ```
 
-Unfortunately `#require_relative` doesn't work with the callback at this time due to
-an implementation difficulty.
+Becuase of implementation details, `#require_relative` has to be reimplemented completely 
+to make the callback work. To be on the safe side, at least for now, it therefore has to
+be required separately, as the example above demonstrates.
 
 
 ## Feedback
