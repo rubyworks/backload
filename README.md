@@ -1,7 +1,7 @@
-[![Build Status](https://secure.travis-ci.org/rubyworks/loaded.png)](http://travis-ci.org/rubyworks/loaded) ::
-[Homepage](http://rubygems.org/gems/loaded) /
-[Development](http://github.com/rubyworks/loaded) /
-[Report Issue](http://github.com/rubyworks/loaded/issues)
+[Homepage](http://rubygems.org/gems/loaded) |
+[Report Issue](http://github.com/rubyworks/loaded/issues) |
+[Source Code](http://github.com/rubyworks/loaded) 
+( [![Build Status](https://secure.travis-ci.org/rubyworks/loaded.png)](http://travis-ci.org/rubyworks/loaded) )
 
 
 # Loaded
