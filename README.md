@@ -10,8 +10,8 @@
 
 Shouldn't loading have a callback?
 
-Note the change in API from v. 0.0 to 0.1. Now ther is only one callback method, namely `#loaded`,
-that both `#load` and `#require` call. Which was used can be determined by the `options[:load]` argument.
+Note the change in API from v. 0.0 to 0.1. Now there is only one callback method, namely `#loaded`,
+that both `#load` and `#require` call. Which was used can be determined by the `options` argument.
 
 
 ## Installation
@@ -44,7 +44,7 @@ To use the loaded callback simply override `Kernel.loaded` method.
 ```
 
 Unfortunately `#require_relative` doesn't work with the callback at this time due to
-an implemention difficulty.
+an implementation difficulty.
 
 
 ## Feedback
