@@ -64,9 +64,11 @@ Or if you wish to discuss in real-time try [IRC #rubyworks](irc://chat.us.freene
 
 ## Copying
 
-Copyright 2012 Rubyworks.
+Backload is copyrighted open source software.
 
-Made available under the **BSD-2-Clause** license.
+    Copyright 2012 Rubyworks.
+
+it is modifiable and redistributable in accordance with the
+**BSD-2-Clause** license.
 
 See LICENSE.txt for details.
-
