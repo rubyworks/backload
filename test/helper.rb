@@ -3,13 +3,13 @@ require 'microtest'
 require 'microtest/assertions'
 
 # Load the library to be tested.
-require 'loaded'
+require 'backload'
 
 # Put our load fixtures on the load path.
 $LOAD_PATH.unshift(File.dirname(__FILE__) + '/fixtures')
 
 # We use this setup to test each possible load configuration.
-def Kernel.loaded(name, opts)
+def Kernel.backloaded(name, opts)
   $load_name = name
   $load_opts = opts
 end
