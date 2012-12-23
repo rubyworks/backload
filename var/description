@@ -1,1 +1,1 @@
-Loaded provides callbacks for Ruby's #require and #load methods.
+Backload provides callbacks for Ruby's #require and #load methods.

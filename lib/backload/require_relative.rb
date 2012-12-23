@@ -1,5 +1,16 @@
 module Kernel
-  private
+
+  #
+  # We create a noop method b/c it simplifes implementation.
+  # Just override this method to use.
+  #
+  # Presently this is an optional feature and must be required 
+  # separately via `backload/require_relative`.
+  #
+  def self.required_relative(path)
+  end
+
+private
 
   #
   # Alias original Kernel#require_relative method.
@@ -13,8 +24,6 @@ module Kernel
   #       realtive path, but that would require `Binding.of_caller`.
   #
   def require_relative(feature, options=nil)
-    options = {:require => true, :relative => true, :load => false}
-
     #result = require_relative_without_callback(feature)
 
     ## We have to reimplement #require_relative instead of calling
@@ -28,10 +37,13 @@ module Kernel
       end
       options[:relative] = File.dirname(file)
       absolute = File.expand_path(feature, File.dirname(file))
-      require_without_callback absolute
+      require_without_callback(absolute)
     )
 
-    Kernel.loaded(feature, options) if result
+    if result
+      Kernel.required_relative(feature)
+      Kernel.backloaded(feature, :require=>true, :load=>false, :relative=>true)
+    end
 
     result
   end
@@ -49,8 +61,6 @@ module Kernel
     #       realtive path, but that would require `Binding.of_caller`.
     #
     def require_relative(feature, options=nil)
-      options = {:require => true, :relative => true, :load => false}
-
       #result = require_relative_without_callback(feature)
 
       ## We have to reimplement #require_relative instead of calling
@@ -67,7 +77,10 @@ module Kernel
         require_without_callback absolute
       )
 
-      Kernel.loaded(feature, options) if result
+      if result
+        Kernel.required_relative(feature)
+        Kernel.backloaded(feature, :require=>true, :load=>false, :relative=>true)
+      end
 
       result
     end

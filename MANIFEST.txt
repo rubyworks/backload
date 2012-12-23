@@ -1,9 +1,10 @@
 #!mast -x *.lock .yardopts .index .ruby bin demo lib man spec test try [A-Z]*.*
 .index
-lib/loaded/load.rb
-lib/loaded/require.rb
-lib/loaded/require_relative.rb
-lib/loaded.rb
+lib/backload/autoload.rb
+lib/backload/load.rb
+lib/backload/require.rb
+lib/backload/require_relative.rb
+lib/backload.rb
 test/fixtures/example_load.rb
 test/fixtures/example_relative.rb
 test/fixtures/example_require.rb

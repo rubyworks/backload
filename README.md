@@ -1,33 +1,30 @@
-[Homepage](http://rubygems.org/gems/loaded) |
-[Report Issue](http://github.com/rubyworks/loaded/issues) |
-[Source Code](http://github.com/rubyworks/loaded) 
-( [![Build Status](https://secure.travis-ci.org/rubyworks/loaded.png)](http://travis-ci.org/rubyworks/loaded) )
+[Homepage](http://rubygems.org/gems/backload) |
+[Report Issue](http://github.com/rubyworks/backload/issues) |
+[Source Code](http://github.com/rubyworks/backload) 
+( [![Build Status](https://secure.travis-ci.org/rubyworks/backload.png)](http://travis-ci.org/rubyworks/backload) )
 
 
-# Loaded
+# Backload
 
 Shouldn't loading have a callback?
-
-Note the change in API from v. 0.0 to 0.1. Now there is only one callback method, namely `#loaded`,
-that both `#load` and `#require` call. Which was used can be determined by the `options` argument.
 
 
 ## Installation
 
 Using RubyGems type on a command line:
 
-    $ gem install loaded
+    $ gem install backload
 
 
 ## Instruction
 
-To use the loaded callback simply override `Kernel.loaded` method.
+To use Backload simply override the `Kernel.backloaded` method.
 
 ```ruby
-  require 'loaded'
-  require 'loaded/require_relative'
+  require 'backload'
+  require 'backload/require_relative'
 
-  def Kernel.loaded(feature, options={})
+  def Kernel.backloaded(feature, options={})
     if options[:require]
       if rel = options[:relative]
         puts "#{feature} has been required relative to #{rel}!"
@@ -48,11 +45,20 @@ Becuase of implementation details, `#require_relative` has to be reimplemented c
 to make the callback work. To be on the safe side, at least for now, it therefore has to
 be required separately, as the example above demonstrates.
 
+Backload also provides callbacks for each type of loading. Just use the past tense
+of the term for any of `#load`, `#require` and `#require_relative`. For example, to
+see all features as they have been required.
+
+```ruby
+  def Kernel.required(feature)
+    puts "#{feature} required!"
+  end
+```
 
 ## Feedback
 
 Please report issues or suggestions to
-[GitHub Issues](http://github.com/rubyworks/required/issues).
+[GitHub Issues](http://github.com/rubyworks/backload/issues).
 Or if you wish to discuss in real-time try [IRC #rubyworks](irc://chat.us.freenet.org/rubyworks) on freenode.net.
 
 

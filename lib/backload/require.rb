@@ -1,5 +1,13 @@
 module Kernel
-  private
+
+  #
+  # We create a noop method  b/c it simplifes implementation.
+  # Just override this method to use.
+  #
+  def self.required(path)
+  end
+
+private
 
   #
   # Alias original Kernel#require method.
@@ -10,10 +18,12 @@ module Kernel
   # Redefine Kernel#require with callback.
   #
   def require(feature, options=nil)
-    options = {:require => true, :load => false}
     result = require_without_callback(feature)
 
-    Kernel.loaded(feature, options) if result
+    if result
+      Kernel.required(feature)
+      Kernel.backloaded(feature, :require=>true, :load=>false)
+    end
 
     result
   end
@@ -27,11 +37,13 @@ module Kernel
     #
     # Redefine Kernel.require with callback.
     #
-    def require(feature, options=nil)
-      options = {:require => true, :load => false}
-      result  = require_without_callback(feature)
+    def require(feature)
+      result = require_without_callback(feature)
 
-      Kernel.loaded(feature, options) if result
+      if result
+        Kernel.required(feature)
+        Kernel.backloaded(feature, :require=>true, :load=>false)
+      end
 
       result
     end
