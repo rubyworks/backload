@@ -1,1 +1,121 @@
-My GitHub Page
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Backload by rubyworks</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Backload</h1>
+        <p>Shouldn't loading have a callback?</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/rubyworks/backload" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/rubyworks/backload/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/rubyworks/backload/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <p><a href="http://rubygems.org/gems/backload">Homepage</a> |
+<a href="http://github.com/rubyworks/backload/issues">Report Issue</a> |
+<a href="http://github.com/rubyworks/backload">Source Code</a> 
+( <a href="http://travis-ci.org/rubyworks/backload"><img src="https://secure.travis-ci.org/rubyworks/backload.png" alt="Build Status"></a> )</p>
+
+<h1>Backload</h1>
+
+<p>Shouldn't loading have a callback?</p>
+
+<h2>Installation</h2>
+
+<p>Using RubyGems type on a command line:</p>
+
+<pre><code>$ gem install backload
+</code></pre>
+
+<h2>Instruction</h2>
+
+<p>To use Backload simply override the <code>Kernel.backloaded</code> method.</p>
+
+<div class="highlight"><pre>  <span class="nb">require</span> <span class="s1">'backload'</span>
+  <span class="nb">require</span> <span class="s1">'backload/require_relative'</span>
+
+  <span class="k">def</span> <span class="nc">Kernel</span><span class="o">.</span><span class="nf">backloaded</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{})</span>
+    <span class="k">if</span> <span class="n">options</span><span class="o">[</span><span class="ss">:require</span><span class="o">]</span>
+      <span class="k">if</span> <span class="n">rel</span> <span class="o">=</span> <span class="n">options</span><span class="o">[</span><span class="ss">:relative</span><span class="o">]</span>
+        <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">feature</span><span class="si">}</span><span class="s2"> has been required relative to </span><span class="si">#{</span><span class="n">rel</span><span class="si">}</span><span class="s2">!"</span>
+      <span class="k">else</span>
+        <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">feature</span><span class="si">}</span><span class="s2"> has been required!"</span>
+      <span class="k">end</span>
+    <span class="k">else</span>
+      <span class="k">if</span> <span class="n">wrap</span> <span class="o">=</span> <span class="n">options</span><span class="o">[</span><span class="ss">:wrap</span><span class="o">]</span>
+        <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">feature</span><span class="si">}</span><span class="s2"> has been loaded with wrap, it's </span><span class="si">#{</span><span class="n">wrap</span><span class="si">}</span><span class="s2">!"</span>  
+      <span class="k">else</span>
+        <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">feature</span><span class="si">}</span><span class="s2"> has been loaded!"</span> 
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+</pre></div>
+
+<p>Becuase of implementation details, <code>#require_relative</code> has to be reimplemented completely 
+to make the callback work. To be on the safe side, at least for now, it therefore has to
+be required separately, as the example above demonstrates.</p>
+
+<p>Backload also provides callbacks for each type of loading. Just use the past tense
+of the term for any of <code>#load</code>, <code>#require</code> and <code>#require_relative</code>. For example, to
+see all features as they have been required.</p>
+
+<div class="highlight"><pre>  <span class="k">def</span> <span class="nc">Kernel</span><span class="o">.</span><span class="nf">required</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span>
+    <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="n">feature</span><span class="si">}</span><span class="s2"> required!"</span>
+  <span class="k">end</span>
+</pre></div>
+
+<h2>Feedback</h2>
+
+<p>Please report issues or suggestions to
+<a href="http://github.com/rubyworks/backload/issues">GitHub Issues</a>.
+Or if you wish to discuss in real-time try <a>IRC #rubyworks</a> on freenode.net.</p>
+
+<h2>Copying</h2>
+
+<p>Backload is copyrighted open source software.</p>
+
+<pre><code>Copyright 2012 Rubyworks.
+</code></pre>
+
+<p>it is modifiable and redistributable in accordance with the
+<strong>BSD-2-Clause</strong> license.</p>
+
+<p>See LICENSE.txt for details.</p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/rubyworks">rubyworks</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
