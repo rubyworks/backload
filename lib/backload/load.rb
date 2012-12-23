@@ -18,7 +18,7 @@ private
   # Redefine Kernel#load with callback.
   #
   def load(path, wrap=nil)
-    result = load_without_callback(feature, options[:wrap])
+    result = load_without_callback(path, wrap)
 
     if result
       Kernel.loaded(path, wrap)

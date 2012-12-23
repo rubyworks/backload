@@ -1,6 +1,6 @@
 require File.expand_path('helper', File.dirname(__FILE__))
 
-require 'loaded/require_relative'  # optional feature
+require 'backload/require_relative'  # optional feature
 
 class RequiredTestCase < MicroTest::TestCase
 

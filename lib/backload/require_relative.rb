@@ -23,7 +23,7 @@ private
   # @todo It would nice if the `:relative` option were set to the
   #       realtive path, but that would require `Binding.of_caller`.
   #
-  def require_relative(feature, options=nil)
+  def require_relative(feature)
     #result = require_relative_without_callback(feature)
 
     ## We have to reimplement #require_relative instead of calling
@@ -35,14 +35,14 @@ private
       if /\A\((.*)\)/ =~ file # eval, etc.
         raise LoadError, "require_relative is called in #{$1}"
       end
-      options[:relative] = File.dirname(file)
+      #options[:relative] = File.dirname(file)
       absolute = File.expand_path(feature, File.dirname(file))
       require_without_callback(absolute)
     )
 
     if result
       Kernel.required_relative(feature)
-      Kernel.backloaded(feature, :require=>true, :load=>false, :relative=>true)
+      Kernel.backloaded(feature, :require=>true, :load=>false, :relative=>File.dirname(file))
     end
 
     result
@@ -60,7 +60,7 @@ private
     # @todo It would nice if the `:relative` option were set to the
     #       realtive path, but that would require `Binding.of_caller`.
     #
-    def require_relative(feature, options=nil)
+    def require_relative(feature)
       #result = require_relative_without_callback(feature)
 
       ## We have to reimplement #require_relative instead of calling
@@ -72,14 +72,14 @@ private
         if /\A\((.*)\)/ =~ file # eval, etc.
           raise LoadError, "require_relative is called in #{$1}"
         end
-        options[:relative] = File.dirname(file)
+        #options[:relative] = File.dirname(file)
         absolute = File.expand_path(feature, File.dirname(file))
         require_without_callback absolute
       )
 
       if result
         Kernel.required_relative(feature)
-        Kernel.backloaded(feature, :require=>true, :load=>false, :relative=>true)
+        Kernel.backloaded(feature, :require=>true, :load=>false, :relative=>File.dirname(file))
       end
 
       result

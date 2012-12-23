@@ -1,10 +1,8 @@
 #!/usr/bin/env ruby
 
-require 'rake/testtask'
-
-Rake::TestTask.new do |t|
-  t.pattern = "test/test_*.rb"
-end
-
 task :default => [:test]
 
+desc "Run unit tests."
+task :test do
+  sh "rubytest -Ilib test/test_*"
+end
