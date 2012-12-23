@@ -24,18 +24,18 @@ conflicts: []
 alternatives: []
 resources:
 - type: home
-  uri: http://rubyworks.github.com/loaded
+  uri: http://rubyworks.github.com/backload
   label: Homepage
 - type: code
-  uri: http://github.com/rubyworks/loaded
+  uri: http://github.com/rubyworks/backload
   label: Source Code
 - type: bugs
-  uri: http://github.com/rubyworks/loaded/issues
+  uri: http://github.com/rubyworks/backload/issues
   label: Issue Tracker
 repositories:
 - name: upstream
   scm: git
-  uri: git://github.com/rubyworks/loaded.git
+  uri: git://github.com/rubyworks/backload.git
 categories: []
 paths:
   load:
@@ -45,9 +45,9 @@ copyrights:
   year: '2012'
   license: BSD-2-Clause
 created: '2012-04-29'
-summary: ! 'Callbacks for #load and #require'
-title: Loaded
-version: 0.1.1
-name: loaded
-description: ! 'Loaded provides callbacks for Ruby''s #require and #load methods.'
-date: '2012-12-18'
+summary: ! 'Callbacks for #require and #load.'
+title: Backload
+version: 0.2.0
+name: backload
+description: ! 'Backload provides callbacks for Ruby''s #require and #load methods.'
+date: '2012-12-23'
