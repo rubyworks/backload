@@ -68,7 +68,7 @@ Backload is copyrighted open source software.
 
     Copyright 2012 Rubyworks.
 
-it is modifiable and redistributable in accordance with the
+It is modifiable and redistributable in accordance with the
 **BSD-2-Clause** license.
 
 See LICENSE.txt for details.
