@@ -8,7 +8,7 @@ email:
   #parts: [readme]
 
 gem:
-  gemspec: pkg/loaded.gemspec
+  gemspec: pkg/backload.gemspec
 
 github:
   gh_pages: web
