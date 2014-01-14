@@ -11,7 +11,7 @@ gem:
   gemspec: pkg/loaded.gemspec
 
 github:
-  gh_pages: site
+  gh_pages: web
 
 dnote:
   title: Source Notes

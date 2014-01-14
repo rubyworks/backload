@@ -1,4 +1,4 @@
-#!mast -x *.lock .yardopts .index .ruby bin demo lib man spec test try [A-Z]*.*
+#!mast .yardopts .index bin demo lib man spec test try *.md *.txt
 .index
 lib/backload/autoload.rb
 lib/backload/load.rb
