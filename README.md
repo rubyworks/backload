@@ -1,7 +1,7 @@
 [Homepage](http://rubygems.org/gems/backload) |
 [Report Issue](http://github.com/rubyworks/backload/issues) |
 [Source Code](http://github.com/rubyworks/backload) 
-( [![Build Status](https://secure.travis-ci.org/rubyworks/backload.png)](http://travis-ci.org/rubyworks/backload) )
+[![Build Status](https://secure.travis-ci.org/rubyworks/backload.png)](http://travis-ci.org/rubyworks/backload)
 
 
 # Backload
@@ -41,7 +41,7 @@ To use Backload simply override the `Kernel.backloaded` method.
   end
 ```
 
-Becuase of implementation details, `#require_relative` has to be reimplemented completely 
+Because of implementation details, `#require_relative` has to be reimplemented completely 
 to make the callback work. To be on the safe side, at least for now, it therefore has to
 be required separately, as the example above demonstrates.
 
