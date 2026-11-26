@@ -1,2 +1,1 @@
-# example ruby file
-1 + 1
+$example_require = true

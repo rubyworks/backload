@@ -1,5 +1,34 @@
 # RELEASE HISTORY
 
+## Unreleased (0.3.0)
+
+Backload is revived, for Ruby 3.1 and up.
+
+Changes:
+
+* Add `Kernel.backloading`, called before every load. Until now there
+  were only callbacks for afterwards. (#4)
+* Add the `:depth` option, which says how many loads a load is inside
+  of, so that what required what can be shown as a tree. (#2)
+* Add `backload/trace`, which prints that tree:
+  `ruby -rbackload/trace script.rb`.
+* The `require_relative` callback is always on. It no longer has to be
+  asked for with `backload/require_relative`. That file, and
+  `backload/require` and `backload/load`, now just load Backload.
+* `Kernel.required_relative` is given the directory as a second
+  argument. A callback that takes only the feature still works. (#5)
+* The hooks are put in place with `Module#prepend` instead of aliases.
+* The callbacks are no longer defined as empty methods, so defining one
+  doesn't warn of a method redefined.
+* Tests run on Spectrum.
+
+Fixes:
+
+* `require_relative` raised "Can't parse" on current Ruby, whose
+  backtrace lines have changed. The directory now comes from
+  `caller_locations`.
+
+
 ## 0.2.0 / 2012-12-22
 
 Change the name of the project from Loaded to Backload, and
