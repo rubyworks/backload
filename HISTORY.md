@@ -1,6 +1,6 @@
 # RELEASE HISTORY
 
-## Unreleased (0.3.0)
+## 0.3.0 / 2026-11-26
 
 Backload is revived, for Ruby 3.1 and up.
 
